@@ -35,7 +35,7 @@ watch(() => props.pokemon_name, async (poke) => {
 
             pokemon_shown.value = {
                 name: data.name,
-                sprite: data.sprites.front_default,
+                sprite: data.sprites.other.home.front_default,
                 type1: data.types[0].type.name,
                 type2: data.types[1]?.type.name
             }
@@ -61,7 +61,7 @@ watch(() => props.pokemon_name, async (poke) => {
     </div>
 
     <div v-else-if='status == DisplayStatus.Shown'>
-        <img :src="pokemon_shown.sprite"/>
+        <img :src="pokemon_shown.sprite" width="300"/>
         <h3>{{ capitalize(pokemon_shown.name) }}</h3>
         <div class="typewrapper">
             <div class="type">{{ capitalize(pokemon_shown.type1) }}</div>
